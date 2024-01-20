@@ -50,14 +50,14 @@ function playRound(player, computer){
             computerScore += points;
         }
 
-    function game1(){
+    function game(){
         let userChoice = getUserInput();
         console.log(playRound(userChoice, getComputerChoice(items)));
        return console.log("Your score: " + playerScore, "Computer score: " + computerScore) 
     }
     
     for (let i = 0; i < numberOfAttemps; i++){
-        game1();
+        game();
         if (i == 4 && playerScore > computerScore){
             console.log("Your final score: " + playerScore)
             console.log("Computer final score: " + computerScore)
