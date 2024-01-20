@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const items = ["rock", "paper", "scisors"];
+
+ function getComputerChoice() {
+    const index = items[Math.floor(Math.random() * items.length)];
+    return index
+}
+
+function getUserInput(){
+   return prompt("Rock, paper or scisors?").toLowerCase();
+}
+
+
+function playRound(player, computer){
+            console.log(player)
+            console.log(computer)
+            if (player == "rock" && computer == "paper"){
+                scoreComputer(1)
+                return "Computer Wins"
+            } else if(player == "paper" && computer == "scisors"){
+                scoreComputer(1)
+                return "Computer Wins!"
+            } else if (player == "scisors" && computer == "rock"){
+                scoreComputer(1)
+                return "Computer Wins!"
+            } else if (player == computer){
+                return "Tie!"
+            } else {
+                scorePlayer(1)
+                return "You win!"
+            }
+        }
+        const numberOfAttemps = 5
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function scorePlayer(points){
+            playerScore += points;
+        }
+        function scoreComputer(points){
+            computerScore += points;
+        }
+
+    function game1(){
+        let userChoice = getUserInput();
+        console.log(playRound(userChoice, getComputerChoice(items)));
+       return console.log("Your score: " + playerScore, "Computer score: " + computerScore) 
+    }
+    
+    for (let i = 0; i < numberOfAttemps; i++){
+        game1();
+        if (i == 4 && playerScore > computerScore){
+            console.log("Your final score: " + playerScore)
+            console.log("Computer final score: " + computerScore)
+            console.log("YOU WIN!... reload to play again")
+        } else if (i == 4 && computerScore > playerScore){
+            console.log("LOSER!!!!...  reload to play again")
+        } else if(i == 4 && computerScore == playerScore){
+            console.log("ITS A TIE!!!!!!")
+        } else{
+            false
+        }
+    }
+    
+</script>
+</body>
+</html>
